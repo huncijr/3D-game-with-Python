@@ -2,7 +2,7 @@ from sprite_object import *
 from  random import randint,random,choice
 
 class NPC(AnimatedSprite):
-    def __init__(self,game,path='C:/Users/hunor/Desktop/3D modellezes Project/3D game/NPC/1. ellenseg/0.png',pos=(9.5,5.5)
+    def __init__(self,game,path='3D game/NPC/1. ellenseg/0.png',pos=(9.5,5.5)
                  ,scale=0.9,shift=-0.1,animation_time=100): 
         super().__init__(game,path,pos,scale,shift,animation_time)
         self.attack_images = self.get_images(self.path + '/tamadas')
