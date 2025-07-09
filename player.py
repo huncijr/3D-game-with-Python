@@ -34,12 +34,6 @@ class Player:
 
     def movement(self):
         dx, dy = 0, 0
-        '''
-        Ha pg.k_W => dx=SPEED*cos(a),dy=SPEED*sin(a)
-        Ha pg.k_S => dx=-SPEED*cos(a),dy=-SPEED*sin(a)
-        Ha pg.k_D => dx=-SPEED*sin(a),dy=+SPEED*cos(a)
-        Ha pg.k_A => dx=SPEED*sin(a), dy=-SPEED*cos(a)
-        '''
         sin_a = math.sin(self.angle)
         cos_a = math.cos(self.angle)
 
@@ -76,10 +70,10 @@ class Player:
             self.y += dy
 
     def draw(self):
-        #pg.draw.line(self.game.screen,(255, 0, 0),(self.x*100,self.y*100), #felület, szín, kezdőpont,
-        #(self.x*100+WIDTH*math.cos(self.angle), #végpont,
+        #pg.draw.line(self.game.screen,(255, 0, 0),(self.x*100,self.y*100), 
+        #(self.x*100+WIDTH*math.cos(self.angle), 
         # self.y*100+WIDTH*math.sin(self.angle)),
-        #             2) #vastagsag
+            
         pg.draw.circle(self.game.screen,'#25bfae',(self.x *100,self.y*100),15) #(felület, szín, középpont, sugár)
 
     def mouse_control(self):
