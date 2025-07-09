@@ -1,6 +1,5 @@
 import pygame as pg
 _ = False
-
 mini_map = \
 [
             [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
