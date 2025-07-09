@@ -6,9 +6,9 @@ class ObjectHandler:
         self.game = game
         self.sprite_list = []
         self.npc_list = []
-        self.npc_sprite_path = 'C:/Users/hunor/Desktop/3D modellezes Project/3D game/NPC'
-        self.static_sprite_path =  'C:/Users/hunor/Desktop/3D modellezes Project/3D game/Spriteok/'
-        self.anim_sprite_path = 'C:/Users/hunor/Desktop/3D modellezes Project/3D game/Animalt_Spriteok/'
+        self.npc_sprite_path = '3D game/NPC'
+        self.static_sprite_path =  '3D game/Spriteok/'
+        self.anim_sprite_path = '3D game/Animalt_Spriteok/'
         add_sprite = self.add_sprite
         add_npc = self.add_npc
         self.npc_position = {}
@@ -16,15 +16,15 @@ class ObjectHandler:
         add_sprite(SpriteObject(game))
         add_sprite(AnimatedSprite(game))
 
-        add_sprite(SpriteObject(game))  # háttérobjektum
-        add_sprite(AnimatedSprite(game, pos=(1.5, 1.5)))  # bal felső
-        add_sprite(AnimatedSprite(game, pos=(1.5, 7.5)))  # felső közép
+        add_sprite(SpriteObject(game))  
+        add_sprite(AnimatedSprite(game, pos=(1.5, 1.5)))  
+        add_sprite(AnimatedSprite(game, pos=(1.5, 7.5)))  
 
-        add_sprite(AnimatedSprite(game, pos=(5.5, 5.5)))  # közép
-        add_sprite(AnimatedSprite(game, pos=(11.5, 13.5)))  # térkép alsó része
-        add_sprite(AnimatedSprite(game, pos=(13.5, 3.5)))  # jobb oldal közepe
-        add_sprite(AnimatedSprite(game, pos=(14.5, 10.5)))  # jobb oldal alsóbb
-        add_sprite(AnimatedSprite(game, pos=(10.5, 1.5)))  # felső jobb oldal
+        add_sprite(AnimatedSprite(game, pos=(5.5, 5.5)))  
+        add_sprite(AnimatedSprite(game, pos=(11.5, 13.5)))  
+        add_sprite(AnimatedSprite(game, pos=(13.5, 3.5)))
+        add_sprite(AnimatedSprite(game, pos=(14.5, 10.5)))  
+        add_sprite(AnimatedSprite(game, pos=(10.5, 1.5)))  
         add_sprite(AnimatedSprite(game, path=self.anim_sprite_path + 'husos_cucc/hus1.png', pos=(2.5, 10.5)))  # külön sprite
         add_sprite(AnimatedSprite(game, path=self.anim_sprite_path + 'husos_cucc/hus1.png', pos=(6.5, 13.5)))  # külön sprite
 
