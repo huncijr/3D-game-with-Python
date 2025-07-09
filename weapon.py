@@ -1,7 +1,7 @@
 from sprite_object import *
 
 class Weapon(AnimatedSprite):
-    def __init__(self,game,path='C:/Users/hunor/Desktop/3D modellezes Project/3D game/Fegyverek/shotgun/celzas.png',scale=0.4,animation_time=90):
+    def __init__(self,game,path='3D game/Fegyverek/shotgun/celzas.png',scale=0.4,animation_time=90):
         super().__init__(game=game,path=path,scale=scale,animation_time=animation_time)
         self.images = deque(
             [pg.transform.smoothscale(img,(self.image.get_width()*scale,self.image.get_height()*scale))
