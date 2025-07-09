@@ -111,7 +111,7 @@ class NPC(AnimatedSprite):
             sin_a = math.sin(ray_angle)
             cos_a = math.cos(ray_angle)
 
-            # Vízszintes metszéspont keresése
+           
             y_hor, dy = (y_map + 1, 1) if sin_a > 0 else (y_map - 1e-6, -1)
             depth_horizontal = (y_hor - oy) / sin_a
             x_hor = ox + depth_horizontal * cos_a
@@ -153,7 +153,7 @@ class NPC(AnimatedSprite):
             if 0 < player_dist < wall_dist or not wall_dist:
                 return True
 
-        return False  # Ez is a függvény végén van, nem a for-cikluson kívül
+        return False  
 
     def draw_ray_cast(self):
         pg.draw.circle(self.game.screen,'red',(100 * self.x,100*self.y),15)
@@ -162,12 +162,12 @@ class NPC(AnimatedSprite):
                          (100*self.x, 100*self.y),2)
 
 class SoldierNPC(NPC):
-    def __init__(self, game, path='C:/Users/hunor/Desktop/3D modellezes Project/3D game/NPC/1. ellenseg/0.png', pos=(10.5, 5.5),
+    def __init__(self, game, path='3D game/NPC/1. ellenseg/0.png', pos=(10.5, 5.5),
                  scale=0.6, shift=0.38, animation_time=180):
         super().__init__(game, path, pos, scale, shift, animation_time)
 
 class CacoDemonNPC(NPC):
-    def __init__(self, game, path='C:/Users/hunor/Desktop/3D modellezes Project/3D game/NPC/2. ellenseg/0.png', pos=(10.5, 6.5),
+    def __init__(self, game, path='3D game/NPC/2. ellenseg/0.png', pos=(10.5, 6.5),
                  scale=0.6, shift=-0.2, animation_time=250):
         super().__init__(game, path, pos, scale, shift, animation_time)
         self.attack_dist = 2.0
@@ -177,7 +177,7 @@ class CacoDemonNPC(NPC):
         self.accuracy = 0.35
 
 class CyberDemonNPC(NPC):
-    def __init__(self, game, path='C:/Users/hunor/Desktop/3D modellezes Project/3D game/NPC/3. ellenseg/0.png', pos=(11.5, 6.0),
+    def __init__(self, game, path='3D game/NPC/3. ellenseg/0.png', pos=(11.5, 6.0),
                  scale=1.0, shift=0.04, animation_time=210):
         super().__init__(game, path, pos, scale, shift, animation_time)
         self.attack_dist = 3
