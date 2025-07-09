@@ -4,7 +4,7 @@ from settings import *
 
 class RayCasting:
     def __init__(self, game):
-        self.game = game  # hivatkozás a teljes játékobjektumra, hogy elérje pl. a játékos pozícióját, képernyőt, térképet
+        self.game = game  
         self.raycasting_result = []
         self.objects_to_render = []
         self.textures = self.game.object_renderer.wall_textures
@@ -33,32 +33,32 @@ class RayCasting:
 
     def ray_cast(self):
         self.raycasting_result = []
-        ox, oy = self.game.player.pos  # a játékos pozíciója (ox, oy)
-        x_map, y_map = self.game.player.map_pos  # a játékos térképpozíciója (egész csempék szerint)
+        ox, oy = self.game.player.pos  
+        x_map, y_map = self.game.player.map_pos  
         texture_vertical,texture_horizontal = 1,1
-        ray_angle = self.game.player.angle - Half_FOV + 0.0001  # a sugár induló szöge, balról jobbra kezdve a látótérben
+        ray_angle = self.game.player.angle - Half_FOV + 0.0001  
 
-        for ray in range(NUM_RAYS):  # végigmegyünk az összes sugáron (pixeles oszlopokon)
-            sin_a = math.sin(ray_angle)  # a szög szinusza
-            cos_a = math.cos(ray_angle)  # a szög koszinusza
+        for ray in range(NUM_RAYS): 
+            sin_a = math.sin(ray_angle)  
+            cos_a = math.cos(ray_angle)  
 
             # Vízszintes metszéspont keresése
             y_hor, dy = (y_map + 1, 1) if sin_a > 0 else (y_map - 1e-6, -1)  # a következő vízszintes csempe iránya
-            depth_horizontal = (y_hor - oy) / sin_a  # a vízszintes találat távolsága
-            x_hor = ox + depth_horizontal * cos_a  # vízszintes találat x koordinátája
-            delta_depth = dy / sin_a  # lépésméret a következő vízszintes vonalig
-            dx = delta_depth * cos_a  # x lépés az adott irányban
+            depth_horizontal = (y_hor - oy) / sin_a  
+            x_hor = ox + depth_horizontal * cos_a  
+            delta_depth = dy / sin_a 
+            dx = delta_depth * cos_a  
 
-            for i in range(MAX_DEPTH):  # ciklus a vízszintes sugarakhoz
+            for i in range(MAX_DEPTH): 
                 tile_horizontal = int(x_hor), int(y_hor)  # jelenlegi csempe koordináta
                 if tile_horizontal in self.game.map.world_map:  # ha falat talál
                     texture_horizontal = self.game.map.world_map[tile_horizontal]
                     break
-                x_hor += dx  # továbblépés
+                x_hor += dx  
                 y_hor += dy
-                depth_horizontal += delta_depth  # növeljük a sugarat
+                depth_horizontal += delta_depth  
 
-            # Függőleges metszéspont keresése
+            
             x_vert, dx = (x_map + 1, 1) if cos_a > 0 else (x_map - 1e-6, -1)  # következő függőleges csempe iránya
             depth_vertical = (x_vert - ox) / cos_a  # távolság a függőleges találatig
             y_vert = oy + depth_vertical * sin_a  # y pozíció a falig
@@ -74,7 +74,7 @@ class RayCasting:
                 y_vert += dy
                 depth_vertical += delta_depth
 
-            # A kettő közül a kisebb távolságot vesszük (amelyik előbb falat talál)
+          
             # depth,texture offset
             if depth_vertical < depth_horizontal:
                 depth,texture = depth_vertical,texture_vertical
@@ -85,9 +85,9 @@ class RayCasting:
                 x_hor %= 1
                 offset = (1-x_hor) if sin_a > 0 else x_hor
 
-            #eltavolitsuk a kozelitesnel a tul nagy fal effektek
+            
             depth *= math.cos(self.game.player.angle-ray_angle)
-            # Fal vetítése (projection) — minél közelebb van a fal, annál magasabb
+           
             proj_height = SCREEN_DIST / (depth + 0.0001)  # 3D magasság kiszámítása
 
             #ray casting result
@@ -96,6 +96,6 @@ class RayCasting:
             ray_angle += DELTA_ANGLE  # továbbhaladás a következő sugárra (következő képernyőoszlop)
 
     def update(self):
-        self.ray_cast()  # minden képkockában újrarendereli a falakat
+        self.ray_cast()  
         self.get_object_to_render()
 
