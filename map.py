@@ -34,5 +34,4 @@ class Map:
                    self.world_map[(i,j)] = value
     def draw(self):
         [pg.draw.rect(self.game.screen,'red', (pos[0] * 100, pos[1] * 100, 100, 100), 2)  #lerajzol egy 100x100-as szurke négyzetet a képernyőn a (200, 300) pontnál, tehát a 2. oszlop, 3. sor helyére, ha a cellaméret 100 pixel.
-         #x,y,szelleseg,magassag
          for pos in self.world_map]
