@@ -6,15 +6,15 @@ class Objectrenderer:
         self.game = game
         self.screen = game.screen
         self.wall_textures = self.load_wall_textures()
-        self.sky_image = self.get_texture('C:/Users/hunor/Desktop/3D modellezes Project/3D game/Texturak/sky.jpg',(WIDTH,HALF_HEIGHT))
+        self.sky_image = self.get_texture('3D game/Texturak/sky.jpg',(WIDTH,HALF_HEIGHT))
         self.sky_offset = 0
-        self.blood_screen = self.get_texture('C:/Users/hunor/Desktop/3D modellezes Project/3D game/Texturak/blood_screen1.png',RES)
+        self.blood_screen = self.get_texture('3D game/Texturak/blood_screen1.png',RES)
         self.digit_size = 71
-        self.digit_images = [self.get_texture(f'C:/Users/hunor/Desktop/3D modellezes Project/3D game/Texturak/szamok/{i}.png', [self.digit_size] * 2)
+        self.digit_images = [self.get_texture(f'3D game/Texturak/szamok/{i}.png', [self.digit_size] * 2)
                              for i in range(11)]
         self.digits = dict(zip(map(str, range(11)), self.digit_images))
-        self.game_over_image = self.get_texture('C:/Users/hunor/Desktop/3D modellezes Project/3D game/Texturak/jatekvege.png',RES)
-        self.victory_image = self.get_texture('C:/Users/hunor/Desktop/3D modellezes Project/3D game/Texturak/gyozelem.png',RES)
+        self.game_over_image = self.get_texture('3D game/Texturak/jatekvege.png',RES)
+        self.victory_image = self.get_texture('3D game/Texturak/gyozelem.png',RES)
     def draw(self):
         self.draw_background()
         self.render_game_objects()
@@ -53,10 +53,10 @@ class Objectrenderer:
 
     def load_wall_textures(self): #egy dict, szotart halmazt ad vissza ahol 1 key, texture a value
         return {
-            1: self.get_texture('C:/Users/hunor/Desktop/3D modellezes Project/3D game/Texturak/fal1.jpg'),
-            2: self.get_texture('C:/Users/hunor/Desktop/3D modellezes Project/3D game/Texturak/fal3.jpg'),
-            3: self.get_texture('C:/Users/hunor/Desktop/3D modellezes Project/3D game/Texturak/fal7.png'),
-            4: self.get_texture('C:/Users/hunor/Desktop/3D modellezes Project/3D game/Texturak/fal4.jpg'),
-            5: self.get_texture('C:/Users/hunor/Desktop/3D modellezes Project/3D game/Texturak/fal6.png'),
-            6:self.get_texture('C:/Users/hunor/Desktop/3D modellezes Project/3D game/Texturak/fal8.png'),
+            1: self.get_texture('3D game/Texturak/fal1.jpg'),
+            2: self.get_texture('3D game/Texturak/fal3.jpg'),
+            3: self.get_texture('3D game/Texturak/fal7.png'),
+            4: self.get_texture('3D game/Texturak/fal4.jpg'),
+            5: self.get_texture('3D game/Texturak/fal6.png'),
+            6:self.get_texture('3D game/Texturak/fal8.png'),
         }
