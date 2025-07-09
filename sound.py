@@ -4,7 +4,7 @@ class Sound:
     def __init__(self,game):
         self.game = game
         pg.mixer.init()
-        self.path = '3D modellezes Project/3D game/Fegyverek/fegyverhang/'
+        self.path = '3D game/Fegyverek/fegyverhang/'
         self.shotgun = pg.mixer.Sound(self.path + 'resources_sound_shotgun.wav')
         self.shotgun.set_volume(0.3)
         self.npc_pain = pg.mixer.Sound('3D game/NPC/NPC hangok/resources_sound_npc_pain.wav')
