@@ -43,7 +43,7 @@ class Objectrenderer:
 
     def render_game_objects(self):
         list_objects = sorted(self.game.raycasting.objects_to_render,key=lambda t:t[0], reverse=True )
-        #Egy lambda függvény egy olyan függvény, amit nem kell külön def kulcsszóval névvel definiálni.
+        
         for depth,image,pos in list_objects:
             self.screen.blit(image,pos)
     @staticmethod
@@ -51,7 +51,7 @@ class Objectrenderer:
         texture = pg.image.load(path).convert_alpha()
         return pg.transform.scale(texture,res)
 
-    def load_wall_textures(self): #egy dict, szotart halmazt ad vissza ahol 1 key, texture a value
+    def load_wall_textures(self): 
         return {
             1: self.get_texture('3D game/Texturak/fal1.jpg'),
             2: self.get_texture('3D game/Texturak/fal3.jpg'),
